@@ -13,7 +13,7 @@ def load_env():
     env_path = Path('.') / '.env'
     load_dotenv(dotenv_path=env_path)
 
-def send_msg(msg):
+def send_msg():
     load_env()
     #credential
     account_sid = os.getenv("ACCOUNT_SID")
@@ -27,13 +27,13 @@ def send_msg(msg):
     message = client.messages.create( 
                                 from_='whatsapp:+14155238886',        
                                 to='whatsapp:'+ str(phone_no),
-                                body= msg
+                                body= "love you"
                             ) 
  
     return message.sid
     
-msg = input("enter Msg to send:\n")
-sid = send_msg(msg)
+# msg = input("enter Msg to send:\n")
+sid = send_msg()
 print(sid)
 
 
